@@ -6,19 +6,21 @@ namespace License_Plate_API.Model
     public class ResponseModel
     {
         public string? Status { get; set; }
-        public string? Messenge { get; set; }
+        public string? Message { get; set; }
         public string? Data { get; set; }
+        public string? RootImagePath { get; set; }
+        public string? PlateImagePath { get; set; }
         public ResponseModel() { }
-        public ResponseModel(string status, string messenge, Object data)
+        public ResponseModel(string status, string message, Object data)
         {
             Status = status;
-            Messenge = messenge;
+            Message = message;
             Data = JsonConvert.SerializeObject(data);
         }
-        public ResponseModel(string status, string messenge)
+        public ResponseModel(string status, string message)
         {
             Status = status;
-            Messenge = messenge;
+            Message = message;
             Data = null;
         }
     }
@@ -28,10 +30,10 @@ namespace License_Plate_API.Model
         {
         }
 
-        public ResponseModelSuccess(string messenge, Object? data = null)
+        public ResponseModelSuccess(string message, Object? data = null)
         {
             Status = "OK";
-            Messenge = messenge;
+            Message = message;
             Data = JsonConvert.SerializeObject(data);
         }
     }
@@ -41,10 +43,10 @@ namespace License_Plate_API.Model
         {
         }
 
-        public ResponseModelError(string messenge, Object? data = null)
+        public ResponseModelError(string message, Object? data = null)
         {
             Status = "Error";
-            Messenge = messenge;
+            Message = message;
             Data = JsonConvert.SerializeObject(data);
         }
     }
